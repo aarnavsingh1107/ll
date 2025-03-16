@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Proposal</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Spectral:wght@200;400;600&display=swap");
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: "Spectral", serif;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+        color: #e8dcca;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        border: 2px solid #e8dcca;
+      }
+      h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      }
+      .button-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Added more space between buttons */
+        position: relative;
+      }
+      .btn {
+        font-family: "Press Start 2P", cursive;
+        font-size: 16px;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s ease;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        outline: none;
+      }
+      #yes {
+        background-color: #4caf50;
+        color: white;
+        position: relative;
+      }
+      #yes:hover {
+        background-color: #388e3c;
+      }
+      #no {
+        background-color: #ff1744;
+        color: white;
+        position: relative;
+      }
+      .vhs-effect {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://i.pinimg.com/736x/e9/23/4f/e9234f8260cb58ce0e0ae8eba8e21cad.jpg");
+        opacity: 0.4;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vhs-effect"></div>
+    <div class="container">
+      <h1>Will you be mine? 💖</h1>
+      <div class="button-group">
+        <button id="yes" class="btn">Yes🥰😽</button>
+        <button id="no" class="btn">No😭</button>
+      </div>
+    </div>
+
+    <script>
+      let noButton = document.getElementById("no");
+      let phrases = [
+        "Really? 🤨",
+        "Why? 💔",
+        "No way! 😭",
+        "Think again! 🤔",
+        "Are you sure? 😣",
+      ];
+      let index = 0;
+
+      noButton.addEventListener("mouseover", function () {
+        noButton.innerText = phrases[index];
+        index = (index + 1) % phrases.length;
+        let maxX = Math.min(
+          window.innerWidth - noButton.clientWidth - 30,
+          noButton.offsetLeft + 250
+        );
+        let maxY = Math.min(
+          window.innerHeight - noButton.clientHeight - 30,
+          noButton.offsetTop + 150
+        );
+        let x =
+          Math.random() * (maxX - noButton.offsetLeft) + noButton.offsetLeft;
+        let y =
+          Math.random() * (maxY - noButton.offsetTop) + noButton.offsetTop;
+        noButton.style.left = x + "px";
+        noButton.style.top = y + "px";
+      });
+
+      document.getElementById("yes").addEventListener("click", function () {
+        window.location.href = "yes.html";
+      });
+    </script>
+  </body>
+</html>
